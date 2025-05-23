@@ -400,6 +400,21 @@ static const struct ah_class jp12 = {
 	.chans = S1G_CHAN_ENABLED_FLAG(38),
 };
 
+static const struct ah_class kr13 = {
+	.s1g_freq_start = 920000,
+	.s1g_op_class = 13,
+	.s1g_op_class_idx = 13,
+	.global_op_class = 74,
+	.s1g_width = IEEE80211_CHAN_1MHZ,
+	.cc_list = {"KR"},
+	.chans = (
+		S1G_CHAN_ENABLED_FLAG(13) |  //926.5
+		S1G_CHAN_ENABLED_FLAG(15) |  //927.5
+		S1G_CHAN_ENABLED_FLAG(17) |  //928.5
+		S1G_CHAN_ENABLED_FLAG(19)    //929.5
+	),
+};
+
 static const struct ah_class kr14 = {
 	.s1g_freq_start = 917500,
 	.s1g_op_class = 14,
@@ -672,6 +687,19 @@ static const struct ah_class in31 = {
 	),
 };
 
+static const struct ah_class kr32 = {
+	.s1g_freq_start = 920000,
+	.s1g_op_class = 32,
+	.s1g_op_class_idx = 32,
+	.global_op_class = 75,
+	.s1g_width = IEEE80211_CHAN_2MHZ,
+	.cc_list = {"KR"},
+	.chans = (
+		S1G_CHAN_ENABLED_FLAG(14) |
+		S1G_CHAN_ENABLED_FLAG(18)
+	),
+};
+
 static const struct ah_class
 		*s1g_op_classes[] = {
 	NULL,
@@ -687,7 +715,7 @@ static const struct ah_class
 	&jp10,
 	&jp11,
 	&jp12,
-	NULL,
+	&kr13,
 	&kr14,
 	&kr15,
 	&kr16,
@@ -706,6 +734,7 @@ static const struct ah_class
 	&nz29,
 	&eu30,
 	&in31,
+	&kr32,
 };
 
 const int S1G_OP_CLASSES_LEN = ARRAY_SIZE(s1g_op_classes);
