@@ -380,7 +380,7 @@ endif
 
 ifdef CONFIG_WNM
 CFLAGS += -DCONFIG_WNM
-CFLAGS += -DCONFIG_MORSE_WNM
+#CFLAGS += -DCONFIG_MORSE_WNM
 OBJS += wnm_sta.o
 endif
 
