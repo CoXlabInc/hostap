@@ -186,6 +186,38 @@ static const struct s1g_ht_chan_pair s1g_ht_chan_pairs_jp[] = {
 	{51, -1, -1},	/* unmapped */
 };
 
+/** Implements the KR specific channelisation scheme */
+static const struct s1g_ht_chan_pair s1g_ht_chan_pairs_kr[] = {
+	/* nulls for alignment */
+	{-1, -1, -1},
+	{1, 149, 1},
+	{2, 151, 2},
+	{3, 153, 1},
+	{4, -1, -1},
+	{5, 157, 1},
+	{6, 159, 2},
+	{7, 161, 1},
+	{8, 163, 4},
+	{9, 165, 1},
+	{10, 167, 2},
+	{11, 169, 1},
+	{12, -1, -1},
+	{13, -1, -1},
+	{14, -1, -1},
+	{15, -1, -1},
+	{16, -1, -1},
+	{17, -1, -1},
+	{18, 183, 1},
+	{19, 185, 2},
+	{20, 187, 1},
+	{21, -1, -1},
+	{22, 191, 1},
+	{23, 193, 2},
+	{24, 195, 1},
+	/* fill remaining with invalid */
+	[25 ... 51] = {-1, -1, -1},
+};
+
 /** Pointer to the configured channelisation pair map */
 static const struct s1g_ht_chan_pair *s1g_ht_chan_pairs = s1g_ht_chan_pairs_default;
 
@@ -193,6 +225,8 @@ void morse_set_s1g_ht_chan_pairs(const char *cc)
 {
 	if (cc && strncmp("JP", cc, COUNTRY_CODE_LEN) == 0)
 		s1g_ht_chan_pairs = s1g_ht_chan_pairs_jp;
+	else if (cc && strncmp("KR", cc, COUNTRY_CODE_LEN) == 0)
+		s1g_ht_chan_pairs = s1g_ht_chan_pairs_kr;
 	else
 		s1g_ht_chan_pairs = s1g_ht_chan_pairs_default;
 }
