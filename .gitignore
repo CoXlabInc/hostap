@@ -11,3 +11,8 @@ compile_commands.json
 .cache
 *.vscode
 null.d
+hostapd/hostapd_cli_s1g
+hostapd/hostapd_s1g
+wpa_supplicant/wpa_cli_s1g
+wpa_supplicant/wpa_passphrase_s1g
+wpa_supplicant/wpa_supplicant_s1g
